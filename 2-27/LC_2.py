@@ -1,5 +1,12 @@
 # 超出时间限制，动态规划问题，结合官方案例解析
+# 使用贪心思路发现其实是想多了，也不一定需要动态规划解决，主要是求上升区间和问题因为前一天买后一天卖而且知道全部信息，不需要考虑持有成本问题，只需要在上升区间前买， 上升区间后卖即可
 
+def maxProfit(self,prices):
+    """
+    :type prices: List[int]
+    :rtype: int
+    """
+    return sum([prices[i+1]-prices[i] for i in range(len(prices)-1) if prices[i+1]-prices[i] > 0 ])
 
 def maxProfit(prices):
     """
@@ -36,7 +43,6 @@ def maxProfit(prices):
 if __name__=="__main__":
     prices = [7,6,4,3,1]
     print(maxProfit(prices))
-                        
-                
+                                   
 
     
